@@ -43,11 +43,11 @@ function sum(){
     let data=a
     function inner(){
         console.log(data);
-        
-
     }
-    inner()
+    // inner()
+    return inner
 }
-sum()
+ sum()
+
 
 
