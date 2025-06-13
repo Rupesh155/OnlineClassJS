@@ -1,4 +1,4 @@
-console.log("hello");
+// console.log("hello");
     // console.log("heheh");
 //     Number => 1    1.5 
 //     String   'c'  "c"
@@ -40,5 +40,4 @@ console.log("hello");
 // console.log(true == " ");
 // var a=5 //=> "number"
 // console.log(typeof(typeof(a)))
-
-console.log(5-"5");// "55"
+// console.log(5-"5");// "55"

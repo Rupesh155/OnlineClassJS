@@ -76,10 +76,10 @@
 // sum()
 // console.log(a);
 // let a=5
-if(false){
-    let a=5
-}
-console.log(a);
+// if(false){
+//     let a=5
+// }
+// console.log(a);
 
 
 

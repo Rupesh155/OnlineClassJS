@@ -25,21 +25,19 @@
 // console.log(obj.__proto__);
 
 
-Array.prototype.aanya=function(cb){
+Array.prototype.myMap=function(cb){
     console.log(cb);
-    
     let res=[]
     for(var i=0;i<this.length;i++){
-      var data=  cb(this[i],i,this)
-       res.push(data)
+       
+       res.push(cb(this[i]))
         
     }
     return res
 
 }
-
 let arr=[1,2,3]
- let val=  arr.aanya(   (a,b,c)=>{ 
+ let val=  arr.myMap(   (a)=>{ 
     return a*2      
 
 }   )

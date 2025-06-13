@@ -1,12 +1,9 @@
 // setTimeout(()=>{
 //     console.log("A");
-    
-
 // },0)
 // setTimeout(()=>{
 //     console.log("B");
-    
-
+  
 // },1000)
 // for(let i=0;i<10000;i++){
 //     console.log(i);
@@ -70,23 +67,23 @@
   
   
  
-  let promise=  new Promise((res,rej)=>{
-    // res("heelooo")
-    // rej("errr")
-    let isBool=true
-    if(isBool){
-        res("hehehe")
-    }else{
-        rej()
-    }
+//   let promise=  new Promise((res,rej)=>{
+//     // res("heelooo")
+//     // rej("errr")
+//     let isBool=true
+//     if(isBool){
+//         res("hehehe")
+//     }else{
+//         rej()
+//     }
 
-  })
-promise.then((r)=>{
-    console.log(r);
+//   })
+// promise.then((r)=>{
+//     console.log(r);
     
-}).catch((err)=>{
-    console.log(err);
+// }).catch((err)=>{
+//     console.log(err);
     
 
-})
+// })
   

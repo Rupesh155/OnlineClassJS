@@ -69,49 +69,51 @@ let arr=[-3,0,3,5,5,2,0,1]
 //   let maxValue=   arr.reduce((a,b)=>{
 //     return a>b?a:b
 
-//    })
+// //    })
 
-//   let newArr=   arr.filter((a,b)=>{
-//     return a!==maxValue
+// //   let newArr=   arr.filter((a,b)=>{
+// //     return a!==maxValue
 
-//    })
-//   let maxB=  newArr.reduce((a,b)=>{
-//     return a>b?a:b
+// //    })
+// //   let maxB=  newArr.reduce((a,b)=>{
+// //     return a>b?a:b
 
-//    })
-//    console.log(maxB);
+// //    })
+// //    console.log(maxB);
    
 
 
-// let arr1=[2,43,12,4,2,5]
-// 2nd max => 
+// // let arr1=[2,43,12,4,2,5]
+// // 2nd max => 
 
 
-// console.log(arr.includes(3));
-// console.log(arr.indexOf(100));
+// // console.log(arr.includes(3));
+// // console.log(arr.indexOf(100));
 
 
-// let data= arr.find((a,b,c)=>{
-//     return a==3
+// // let data= arr.find((a,b,c)=>{
+// //     return a==3
 
-// })
-// console.log(data);
-// let data1= arr.filter((a,b,c)=>{
-//     return a==3
-
-// })
-// console.log(data1)
-
-// //  let data=  arr.some((a)=>{
-// //     return a==5 
-    
 // // })
 // // console.log(data);
-// // let data1=  arr.every((a)=>{
-// //     return a==5 
-    
+// // let data1= arr.filter((a,b,c)=>{
+// //     return a==3
+
 // // })
-// // console.log(data);
+// // console.log(data1)
+
+// // //  let data=  arr.some((a)=>{
+// // //     return a==5 
+    
+// // // })
+// // // console.log(data);
+// // // let data1=  arr.every((a)=>{
+// // //     return a==5 
+    
+// // // })
+// // // console.log(data);
+
+
 
 
 

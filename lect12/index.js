@@ -39,14 +39,47 @@
 // fn()
 
 
-function couter(){
+// function couter(){
+//     let count=0
+//     return{
+//         getCount:function(){
+//             return count;
+//         }
+//     }
+// }
+//   let fn=   couter()
+//   console.log(fn.getCount());
+
+function outer(){
     let count=0
     return{
-        getCount:function(){
-            return count;
+        getCall:function(){
+            return count++
         }
     }
+
 }
-  let fn=   couter()
-  console.log(fn.getCount());
+let counter =outer()
+let counter1 =outer()
+counter1={
+    getCall:function(){
+    console.log("hehehehe");
+    
+    }
+}
+
+// console.log(counter.getCall());
+// console.log(counter1.getCall());
+// console.log(counter1);
+
+
+
+
   
+
+
+
+
+
+
+

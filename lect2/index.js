@@ -47,13 +47,13 @@
 // let name2="afroz"
 // let nam3="anu"
 
-const student= {
-name1:"anya",
-name2:"sakshi",
-nam3:"ritik",
-age:35
-}
-student.age=20
+// const student= {
+// name1:"anya",
+// name2:"sakshi",
+// nam3:"ritik",
+// age:35
+// }
+// student.age=20
 // console.log(student.name1);
 // console.log(student.age);
 //       let a={name:"ritik"}  // => 5

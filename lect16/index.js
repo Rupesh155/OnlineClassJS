@@ -7,7 +7,7 @@ let obj={
     getFullName:function(age,isPass){
         console.log(this.name+ "   "+this.lastName+  " "+age +" "+isPass);
     }
-}
+}  
 let obj1={
     id:2,
     name:"sakshi",
