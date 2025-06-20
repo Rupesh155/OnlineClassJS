@@ -25,8 +25,7 @@ inp.addEventListener('input',(e)=>{
       h4.innerText=realData.number
       h5.innerText=realData.passWord
 
-       
- 
+    
  })
 
 
