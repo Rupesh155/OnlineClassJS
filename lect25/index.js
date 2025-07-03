@@ -4,7 +4,8 @@ let  snakeCells=[ [0,0] ]
 let cell=50
 let direction='right'
 let gameOver=false
-
+let score=0
+let foodCell = generateRandomCell();
 let id=   setInterval(()=>{
     draw()
     update()
@@ -41,7 +42,9 @@ let id=   setInterval(()=>{
 function draw(){
     if(gameOver==true){
         clearInterval(id)
-        console.log("hehe");
+       pen.fillStyle = 'red';
+       pen.font = '40px sans-serif';
+       pen.fillText('Game over', 50, 150);
         return;
         
     }
@@ -50,6 +53,12 @@ function draw(){
         pen.fillRect(i[0],i[1],cell,cell)
 
     }
+
+    pen.fillStyle = 'red';
+    pen.fillRect(foodCell[0], foodCell[1], 50, 50);
+    pen.fillStyle = 'white';
+    pen.font = '40px sans-serif';
+    pen.fillText(`${score} score`, 100,200)
  
 }
 function update(){
@@ -88,6 +97,20 @@ function update(){
        }
 
        snakeCells.push([newX,newY])
-       snakeCells.shift()
-}
+       if (foodCell[0] === headX && foodCell[1] === headY) {
+        foodCell = generateRandomCell();
+        score += 1;
+      } else {
+        snakeCells.shift();
+      }
+    }
+
+
+
+function generateRandomCell() {
+    return [
+      Math.round((Math.random()*(650))/50)*50,
+      Math.round((Math.random()*(350))/50)*50
+    ]
+  }
 
