@@ -29,8 +29,7 @@ import React, { useState } from 'react'
 const Day2 = () => {
     const [input,SetInput]=     useState("")
     function fun1(e){
-        SetInput(e.target.value)
-        
+        SetInput(e.target.value)   
     }
   return (
     <div>
@@ -39,5 +38,6 @@ const Day2 = () => {
     </div>
   )
 }
+
 
 export default Day2
