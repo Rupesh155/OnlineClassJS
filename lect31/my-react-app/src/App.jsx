@@ -39,17 +39,21 @@
 // export default App
 
 
-
+  // props
 
 import React from 'react'
-import Day2 from './Day2'
-import Day3 from './Day3'
+import Day4 from './Day4'
+// import Day2 from './Day2'
+// import Day3 from './Day3'
 
 const App = () => {
+  let user="hello"
   return (
     <div>
       {/* <Day2/> */}
-      <Day3/>
+      {/* <Day3/> */}
+      <Day4    data={user} />
+
     </div>
   )
 }
