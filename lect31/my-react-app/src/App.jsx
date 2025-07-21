@@ -43,6 +43,7 @@
 
 import React from 'react'
 import Day4 from './Day4'
+import Day5 from './Day5'
 // import Day2 from './Day2'
 // import Day3 from './Day3'
 
@@ -52,7 +53,9 @@ const App = () => {
     <div>
       {/* <Day2/> */}
       {/* <Day3/> */}
-      <Day4    data={user} />
+      {/* <Day4    data={user} /> */}
+      <Day5/>
+
 
     </div>
   )

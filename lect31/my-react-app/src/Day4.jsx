@@ -19,11 +19,21 @@
 import React, { useState } from 'react'
 const Day4 = () => {
    let [input,SetInput]=      useState("")
-   let [data,SetData]=      useState([])
+   let [data,SetData]=      useState(["hewllo", "hiii", "buyy"])
    function fun1(){
     SetData([...data,input])
     console.log(data);
     SetInput("")
+    
+   }
+   function d(index){
+   const newArr=   data.filter((a,id)=>{
+      return id!=index
+
+    })
+    SetData(newArr)
+         
+    
     
    }
   return (
@@ -31,10 +41,10 @@ const Day4 = () => {
         <input    name='input' value={input}    onChange={(e)=>SetInput(e.target.value)}/>
         <button onClick={fun1}>click</button>
         {
-            data.map((a)=>{
+            data?.map((a,index)=>{
                 return(<>
                 <li>{a}</li>
-                <button >x</button>
+                <button  onClick={()=>d(index)}>x</button>
                 </>)
             })
         }
@@ -43,3 +53,15 @@ const Day4 = () => {
 }
 
 export default Day4
+
+
+
+
+
+
+// [0,1,2]
+// index =1
+
+// id=0
+// id=1
+// id=2
