@@ -25,6 +25,22 @@ const Day5 = () => {
         SetInput(nerArr)
         // console.log(nerArr, "heheheheh");
     }
+
+
+    function dataSave(data){
+        // console.log(data);
+        localStorage.setItem("key", JSON.stringify(data))
+        
+
+    }
+    function deletFromLocalS(id){
+        // console.log(id);
+        let saveData=   JSON.parse(localStorage.getItem('key')) 
+      console.log(saveData);
+      
+        
+
+    }
     
   return (
     <div>
@@ -33,10 +49,11 @@ const Day5 = () => {
         <div id='parent_Card'>  
         {
             input.map((a,index)=>{
-                return(<div id='card'  onClick={()=>d(a.id)} >
+                return(<div id='card'  >
 
                 <h1>{a.id}</h1>
-                <button>add</button>
+                <button onClick={()=>dataSave(a)}>add</button>
+                <button  onClick={()=>deletFromLocalS(a.id)}>delet</button>
                 </div>)
             })
         }
@@ -45,4 +62,4 @@ const Day5 = () => {
   )
 }
 
-export default Day5
+export default Day5   

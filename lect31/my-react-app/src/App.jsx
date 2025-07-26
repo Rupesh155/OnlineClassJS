@@ -41,24 +41,52 @@
 
   // props
 
+// import React from 'react'
+// import Day4 from './Day4'
+// import Day5 from './Day5'
+// // import Day2 from './Day2'
+// // import Day3 from './Day3'
+
+// const App = () => {
+//   let user="hello"
+//   return (
+//     <div>
+//       {/* <Day2/> */}
+//       {/* <Day3/> */}
+//       {/* <Day4    data={user} /> */}
+//       <Day5/>
+
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
 import React from 'react'
-import Day4 from './Day4'
-import Day5 from './Day5'
-// import Day2 from './Day2'
-// import Day3 from './Day3'
+import NavBar from './NavBar'
+import { Route, Routes } from 'react-router-dom'
+import Contact from './Contact'
+import Home from './Home'
 
 const App = () => {
-  let user="hello"
   return (
     <div>
-      {/* <Day2/> */}
-      {/* <Day3/> */}
-      {/* <Day4    data={user} /> */}
-      <Day5/>
-
-
+      <NavBar/>
+      <Routes>
+        <Route  path="/" element={<Home/>}/>
+        <Route path='/contact'  element={<Contact/>}/>
+      </Routes>
     </div>
   )
 }
 
 export default App
+
+
+
+//npm i react-router-dom
