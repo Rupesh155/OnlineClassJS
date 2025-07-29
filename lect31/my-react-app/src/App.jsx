@@ -72,15 +72,17 @@ import NavBar from './NavBar'
 import { Route, Routes } from 'react-router-dom'
 import Contact from './Contact'
 import Home from './Home'
+import Day7 from './Day7'
 
 const App = () => {
   return (
     <div>
-      <NavBar/>
+      <Day7/>
+      {/* <NavBar/>
       <Routes>
         <Route  path="/" element={<Home/>}/>
         <Route path='/contact'  element={<Contact/>}/>
-      </Routes>
+      </Routes> */}
     </div>
   )
 }
