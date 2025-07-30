@@ -71,13 +71,15 @@ import React from 'react'
 import NavBar from './NavBar'
 import { Route, Routes } from 'react-router-dom'
 import Contact from './Contact'
-import Home from './Home'
-import Day7 from './Day7'
+// import Home from './Home'
+// import Day7 from './Day7'
+import Day8 from './Day8'
 
 const App = () => {
   return (
     <div>
-      <Day7/>
+      {/* <Day7/> */}
+      <Day8/>
       {/* <NavBar/>
       <Routes>
         <Route  path="/" element={<Home/>}/>
