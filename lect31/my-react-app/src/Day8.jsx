@@ -26,9 +26,7 @@ const Day8 = () => {
                     input:""
                     // input:""
                     
-                   
-                    
-
+                
                 }
             }
         }
