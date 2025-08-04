@@ -75,13 +75,19 @@ import Contact from './Contact'
 // import Day7 from './Day7'
 import Day8 from './Day8'
 import Day9 from './Day9'
-
+import Day5 from './Day5'
+import Cart from './Cart'
 const App = () => {
+  let [input ,SetInput]=useState([]);
+
   return (
     <div>
       {/* <Day7/> */}
       {/* <Day8/> */}
-      <Day9/>
+      {/* <Day9/> */}
+      {/* <Day10/> */}
+      <Cart   />
+      <Day5 input={input}   SetInput={SetInput}/>
       {/* <NavBar/>
       <Routes>
         <Route  path="/" element={<Home/>}/>

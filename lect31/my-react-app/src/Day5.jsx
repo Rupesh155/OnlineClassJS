@@ -1,63 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import './Day5.css'
-const Day5 = () => {
+import ApiDataShow from './ApiDataShow';
+const Day5 = ({input,SetInput}) => {
 
-    let [input ,SetInput]=useState([]);
+
     useEffect(()=>{
         // console.log("hello");
-        fetch('https://jsonplaceholder.typicode.com/todos').
+        fetch('https://dummyjson.com/recipes').
         then((res)=>{
             return res.json()
 
         }).then((data)=>{
-            SetInput(data)
-            console.log(data);
+            SetInput(data.recipes)
+            console.log(data.recipes,"mai hu kaun");
+            
+      
             
         })
         
     },[])
-// index=3
-    function d(index){
-       let nerArr=   input.filter((a)=>{
-            return a.id!=index
-
-        })
-        SetInput(nerArr)
-        // console.log(nerArr, "heheheheh");
-    }
 
 
-    function dataSave(data){
-        // console.log(data);
-        localStorage.setItem("key", JSON.stringify(data))
-        
 
-    }
-    function deletFromLocalS(id){
-        // console.log(id);
-        let saveData=   JSON.parse(localStorage.getItem('key')) 
-      console.log(saveData);
-      
-        
+    
 
-    }
+
     
   return (
     <div>
-        {/* <button onClick={()=>SetCount(count+1)}> count {count}
-        </button> */}
-        <div id='parent_Card'>  
-        {
-            input.map((a,index)=>{
-                return(<div id='card'  >
-
-                <h1>{a.id}</h1>
-                <button onClick={()=>dataSave(a)}>add</button>
-                <button  onClick={()=>deletFromLocalS(a.id)}>delet</button>
-                </div>)
-            })
-        }
-         </div>
+     <ApiDataShow  data={input} />
+      
     </div>
   )
 }
