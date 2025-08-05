@@ -67,7 +67,7 @@
 
 
 
-import React from 'react'
+import React,{useState} from 'react'
 import NavBar from './NavBar'
 import { Route, Routes } from 'react-router-dom'
 import Contact from './Contact'
@@ -79,6 +79,10 @@ import Day5 from './Day5'
 import Cart from './Cart'
 const App = () => {
   let [input ,SetInput]=useState([]);
+  let [cartData,SetCartData]=useState([])
+
+  console.log(cartData,"dyan se dekhooo");
+  
 
   return (
     <div>
@@ -86,13 +90,17 @@ const App = () => {
       {/* <Day8/> */}
       {/* <Day9/> */}
       {/* <Day10/> */}
-      <Cart   />
-      <Day5 input={input}   SetInput={SetInput}/>
-      {/* <NavBar/>
       <Routes>
-        <Route  path="/" element={<Home/>}/>
-        <Route path='/contact'  element={<Contact/>}/>
-      </Routes> */}
+        <Route  path='/cart' element={  <Cart   cartData={cartData}  />} />
+        <Route  path='/'  element={      <Day5 input={input}   cartData={cartData}  SetCartData ={SetCartData}   SetInput={SetInput}/>}/>
+      </Routes>
+    
+
+      {/* <NavBar/>
+      // <Routes>
+      //   <Route  path="/" element={<Home/>}/>
+      //   <Route path='/contact'  element={<Contact/>}/>
+      // </Routes> */}
     </div>
   )
 }

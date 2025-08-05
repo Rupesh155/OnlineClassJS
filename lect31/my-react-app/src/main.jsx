@@ -7,9 +7,9 @@ createRoot(document.getElementById('root')).render(
 
   <StrictMode>
     <BrowserRouter>   
-    <Context.Provider   value={"heheheh"}>  
+ 
    <A/>
-   </Context.Provider>
+
    </BrowserRouter>
   </StrictMode>
 )
