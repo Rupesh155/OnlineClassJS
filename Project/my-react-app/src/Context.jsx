@@ -1,15 +1,36 @@
 
 import { createContext, useReducer, useEffect } from 'react'
  export const Context= createContext()
+
  const initialData={
-    data:[]
+    data:[],
+    cartData:[]
  }
+
  function reduser(state,action){
     if(action.type=="FETCH_DATA"){
         return{
             ...state,data:action.payload
         }
+    }
+    else if(action.type==="addToCart"){
+        return{
+            ...state,
+            cartData:[...state.cartData,action.payload]
 
+        }
+    }
+    else if(action.type=="delet"){
+        return{
+            ...state,
+            cartData:state.cartData.filter((data,key)=>{
+                return key!==action.payload
+
+            })
+        }
+    }
+    else{
+        return state
     }
 
  }
