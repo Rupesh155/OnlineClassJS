@@ -12,12 +12,8 @@ const Cart = () => {
             return(<div id='card'  >
                 <img  src={a.image}/>
                 <p>{a.name}</p>
-                <button  onClick={()=>dispatch({type:"delet",payload:index})}>delet</button>
-
-
-                
-               
-              
+                <h2>{a.quantity}</h2>
+                <button  onClick={()=>dispatch({type:"delet",payload:index})}>delet</button> 
             </div>)
         })
     }

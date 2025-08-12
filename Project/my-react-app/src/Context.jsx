@@ -14,12 +14,57 @@ import { createContext, useReducer, useEffect } from 'react'
         }
     }
     else if(action.type==="addToCart"){
-        return{
-            ...state,
-            cartData:[...state.cartData,action.payload]
+         
+        let existingItem=    state.cartData.find(item=>item.id==action.payload)
+
+        if(existingItem){
+            return{
+                ...state,
+                cartData:state.cartData.map(item=>item.id===action.payload.id?{...item,quantity:item.quantity+1}:item)
+            }
 
         }
+        else{
+            return{
+                ...state,
+                cartData:[...state.cartData,{...action.payload,quantity:1}]
+            }
+        }
+        // {
+        //     cartData{
+        //         id:1,
+        //         title:"hehe",
+        //         iamge:"hehehe",
+        //         quantity:1
+        //     }
+        // }
+
+        // return{
+        //     ...state,
+        //     cartData:[...state.cartData,action.payload]
+
+        // }
     }
+
+    else if(action.type==="increment"){
+        return{
+            ...state,
+            cartData:state.cartData.map(item=>item.id===action.payload?{...item,quantity:item.quantity+1}:item)
+        }
+
+    }
+
+    else if(action.type==="decrement"){
+        return{
+            ...state,
+            cartData:state.cartData.map(item=>item.id===action.payload?{...item,quantity:item.quantity-1}:item).filter(a=>a.quantity>0)
+        }
+    }
+
+
+
+
+
     else if(action.type=="delet"){
         return{
             ...state,

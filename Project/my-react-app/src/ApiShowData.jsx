@@ -21,7 +21,9 @@ const ApiShowData = () => {
                 <img  src={a.image}/>
                 <p>{a.name}</p>
                 {
-                  inCart?(<div> <button>++</button>   <button>--</button> </div>):( <button onClick={()=>{dispatch({type:"addToCart",payload:a})}}>click</button> )
+                  inCart?(<div> <button  onClick={()=>dispatch({type:"increment",payload:a.id})}>++</button> {inCart.
+                    quantity
+                    }  <button onClick={()=>dispatch({type:"decrement",payload:a.id})}>--</button> </div>):( <button onClick={()=>{dispatch({type:"addToCart",payload:a})}}>click</button> )
                 }
                
             </div>)
