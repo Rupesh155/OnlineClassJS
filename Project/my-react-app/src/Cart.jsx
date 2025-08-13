@@ -9,11 +9,14 @@ const Cart = () => {
     <div>
     {
         state.cartData.map((a,index)=>{
-            return(<div id='card'  >
+            return(<div id='cardData'  >
                 <img  src={a.image}/>
                 <p>{a.name}</p>
                 <h2>{a.quantity}</h2>
-                <button  onClick={()=>dispatch({type:"delet",payload:index})}>delet</button> 
+                <button  onClick={()=>dispatch({type:"increment",payload:a.id})}>++</button> 
+                <button onClick={()=>dispatch({type:"decrement",payload:a.id})}>--</button>
+
+  
             </div>)
         })
     }

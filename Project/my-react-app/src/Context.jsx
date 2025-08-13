@@ -1,5 +1,5 @@
 
-import { createContext, useReducer, useEffect } from 'react'
+import { createContext, useReducer, useEffect, useState, useContext, useCallback, useMemo } from 'react'
  export const Context= createContext()
 
  const initialData={
@@ -74,9 +74,24 @@ import { createContext, useReducer, useEffect } from 'react'
             })
         }
     }
+
+
+    else if(action.type=="max"){
+        return{
+            ...state,
+            data:[...state.data.sort((a,b)=>b.rating-a.rating)]
+        }
+    }
+    else if(action.type=="min"){
+        return{
+            ...state,
+            data:[...state.data.sort((a,b)=>a.rating-b.rating)]
+        }
+    }
     else{
         return state
     }
+
 
  }
 
@@ -92,7 +107,6 @@ import { createContext, useReducer, useEffect } from 'react'
         }).then((data)=>{ 
             dispatch({type:"FETCH_DATA" ,payload:data.recipes})   
         })
-        
     },[])
 
     return(
@@ -105,3 +119,11 @@ import { createContext, useReducer, useEffect } from 'react'
 
 
  export default ContextP
+
+
+
+//  useEffect,useState ,useReducer,react-router-dom,props,useContext
+
+// useRef , useCallback,useMemo,
+
+

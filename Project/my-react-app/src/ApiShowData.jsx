@@ -4,12 +4,16 @@ import './ApiShow.css'
 import { Link } from 'react-router-dom'
 const ApiShowData = () => {
      let  {state,dispatch}=     useContext(Context)
-    //  console.log(data,"isko dekhoo");
+     console.log(state.data,"isko dekhoo");
   return (
     <>   
     <Link to={'/cart'}>
     <button>Cart</button>
     </Link>
+
+    <button onClick={()=>dispatch({type:"max"})}>maxRating</button>
+    <button onClick={()=>dispatch({type:"min"})}>MinRating</button>
+
      
     <div id='parent_Card'>  
       
@@ -20,6 +24,7 @@ const ApiShowData = () => {
             return(<div id='card'  >
                 <img  src={a.image}/>
                 <p>{a.name}</p>
+                <h5>{a.rating} ⭐️</h5>
                 {
                   inCart?(<div> <button  onClick={()=>dispatch({type:"increment",payload:a.id})}>++</button> {inCart.
                     quantity
