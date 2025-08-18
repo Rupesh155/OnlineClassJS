@@ -72,6 +72,8 @@ import React, { memo, useCallback, useMemo, useState } from 'react'
 
 const App = () => {
   let [count, setCount] = useState(0)
+  let [state, setState] = useState(0)
+
   console.log("apppp wali fileeeee");
 
 
@@ -95,14 +97,32 @@ const App = () => {
   //   // console.log(data);
   // }
   // sum()
+
+
+
+
+
+
+  //  let even=   useMemo(()=>{
+  //   return ()=>{
+  //     console.log("hello");
+      
+  //   }
+  // },[])
+
+ let even=  useCallback(()=>{
+  console.log("hello");
+ },[])
   return (
     <div>
       {/* <h1>{val}</h1> */}
       <h1>appp</h1>
       <h2 >{count}</h2>
       <button onClick={() => setCount(count + 1)}>click</button>
+      <button onClick={() => setState(state - 1)}>--</button>
+
       {/* <ChildApp /> */}
-      <MemoizedChild   count={count} />
+      <MemoizedChild   even={even} />
     </div>
   )
 }
