@@ -279,15 +279,29 @@
 
      let e=       require("express")
       let app=    e()
+      let arr=[1,2,3,4,5,6,5,4,34,3,11,3,4,55,56]
          
       app.get('/',(req,res)=>{
         res.send("hello")
 
       })
+      http://localhost:4000/search?name=anu&&lastname=jain
+      app.get("/search",(req,res)=>{
+        let data=   req.query
+        console.log(data);
+        
+      //  let {a}=   req.params
+      //  console.log(a);
+      //   let val=   arr.filter((data)=>{
+      //       return data==a
 
-      app.get("/:ani",(req,res)=>{
-     let {ani}=    req.params
-        res.send(ani)
+      //     })
+      //     res.send(val)
+       
+     //    npx nodemon start
+
+    //  let {ani}=    req.params
+    //     res.send(ani)
         // console.log(req);
         // res.send(req)
         // req.send("heee")
