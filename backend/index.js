@@ -277,18 +277,33 @@
 //       })
 
 
-     let e=       require("express")
-      let app=    e()
+     let express=  require("express")
+      let app=    express()
+      app.use(express.json())
+      let fs=    require("fs")
       let arr=[1,2,3,4,5,6,5,4,34,3,11,3,4,55,56]
-         
-      app.get('/',(req,res)=>{
-        res.send("hello")
 
+      app.get("/:data",(req,res)=>{
+        let {data}=req.params
+          let val=  arr.filter((a)=>{
+            return data==a
+
+           })
+
+        console.log(val);
+        res.send(val)
+  
+      //  /
       })
-      http://localhost:4000/search?name=anu&&lastname=jain
-      app.get("/search",(req,res)=>{
-        let data=   req.query
-        console.log(data);
+              
+      // app.get('/',(req,res)=>{
+      //   res.send("hello")
+
+      // })
+      // http://localhost:4000/search?name=anu&&lastname=jain
+      // app.get("/search",(req,res)=>{
+      //   let data=   req.query
+      //   console.log(data);
         
       //  let {a}=   req.params
       //  console.log(a);
@@ -305,7 +320,7 @@
         // console.log(req);
         // res.send(req)
         // req.send("heee")
-      })
+      // })
     //   app.get("/cat",(req,res)=>{
     //     res.send("cat")
     //     // console.log(req);
@@ -313,11 +328,32 @@
     //     // req.send("heee")
 
     //   })
+//  srverrrrrrr    
+// app.get("/",()=>{
+//   res
+// })
+//     app.get("/read",(req,res)=>{
+//          let data=  fs.readFileSync('index.txt')
+//       res.send(data.toString())
+//     })
 
+//     app.post("/creat",(req,res)=>{
+//          let data=    req.body
+//         //  console.log(data);
+//         fs.writeFileSync("index.txt",JSON.stringify(data))
+//       res.send("hello mai post req hu ")
+//     })
+
+//     app.delete("/remove",(req,res)=>{
+//       fs.unlinkSync("index.txt")
+//       res.send("data delet ho chuka haiii")
+
+//     })
+    // app.post ,app.patch app.delete
+
+    // https://www.flipkart.com/
       app.listen(4000,()=>{
         console.log("server running  on 4000");
-        
-
 
       })
 
