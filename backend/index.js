@@ -277,24 +277,24 @@
 //       })
 
 
-     let express=  require("express")
-      let app=    express()
-      app.use(express.json())
-      let fs=    require("fs")
-      let arr=[1,2,3,4,5,6,5,4,34,3,11,3,4,55,56]
+    //  let express=  require("express")
+    //   let app=    express()
+    //   app.use(express.json())
+    //   let fs=    require("fs")
+    //   let arr=[1,2,3,4,5,6,5,4,34,3,11,3,4,55,56]
 
-      app.get("/:data",(req,res)=>{
-        let {data}=req.params
-          let val=  arr.filter((a)=>{
-            return data==a
+    //   app.get("/:data",(req,res)=>{
+    //     let {data}=req.params
+    //       let val=  arr.filter((a)=>{
+    //         return data==a
 
-           })
+    //        })
 
-        console.log(val);
-        res.send(val)
+    //     console.log(val);
+    //     res.send(val)
   
-      //  /
-      })
+    //   //  /
+    //   })
               
       // app.get('/',(req,res)=>{
       //   res.send("hello")
@@ -352,10 +352,10 @@
     // app.post ,app.patch app.delete
 
     // https://www.flipkart.com/
-      app.listen(4000,()=>{
-        console.log("server running  on 4000");
+      // app.listen(4000,()=>{
+      //   console.log("server running  on 4000");
 
-      })
+      // })
 
 
 
@@ -387,3 +387,49 @@
    
 
 
+
+
+
+// new class 
+
+let express= require("express")
+ let app=    express()
+ let fs=   require('fs')
+ let cors=  require('cors')
+ app.use(express.json())
+ app.use(express.urlencoded({extended:true}))
+ app.use(cors())
+
+
+ app.get('/',(req,res)=>{
+  // res.send("hello")
+  //  let data=   fs.readFileSync("index.html")
+   res.send(data.toString())
+
+ })
+ app.post("/create",(req,res)=>{
+
+     console.log(req.body);
+    
+  // fs.writeFileSyn =c("index.html",data.msg)
+  res.send("data aa gya hai paresshan na ho aap log")
+
+ })
+
+//  app.patch("/edit",(req,res)=>{
+//   let dataForEdit=   req.body
+//         fs.appendFileSync("index.html",dataForEdit.msg)
+//         res.send("file was updatededddddddddd")
+//  })
+
+ app.listen(4000,()=>{
+  console.log("server running on port no 4000");
+  
+ })
+
+
+//  http://localhost:5173 =>REACT
+ 
+//  http://localhost:4000/create' BACKEND
+
+//  cors  
