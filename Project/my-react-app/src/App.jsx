@@ -261,62 +261,95 @@
 
 // export default App
 
-import React, { useState } from 'react' 
+// import React, { useState } from 'react' 
+// import axios from 'axios'
+// const App = () => {
+//   let [formData,SetFormData]=useState({
+//     name:"",
+//     passWord:""
+//   })          
+//   function handleForm(e){
+//     let {name,value}=e.target
+//     SetFormData({
+//       ...formData,[name]:value
+//     })
+//   }
+
+//     async  function handleSubmit(e){
+//     e.preventDefault()
+
+//         let res=   await axios.post("http://localhost:4000/create",formData)
+//         console.log(res);
+        
+
+      
+//     // console.log(formData);
+     
+//     //  let data=     await fetch("http://localhost:4000/create" ,{
+//     //   method:"POST",
+//     //   headers:{
+//     //     "Content-Type":"application/json"
+//     //   },
+//     //   body:JSON.stringify(formData)
+//     // })
+//     // let res=    await data.json()
+//     // console.log(res);
+  
+//     // console.log("heheh");
+
+        
+    
+
+
+    
+//   }
+
+//   // {
+//   //   name:"rimi",
+//   //   passWord:"123"    
+//   // }
+//   // {
+//   //   "name":"123",
+//   //   "dsifwi":2423
+//   // }
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <input  name='name' value={formData.name}  onChange={handleForm} type='text' placeholder='Name'/>
+
+//         <br></br>
+//         <br></br>
+//         <input   name='passWord' value={formData.passWord}  onChange={handleForm} type='password' placeholder='password'/>
+//         <br></br>
+//         <br></br>
+//         <button type='submit'> AddData</button>
+
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import SignUp from './SignUp'
+import { Route, Routes } from 'react-router-dom'
+import Login from './Login'
+import Home from './Home'
 
 const App = () => {
-  let [formData,SetFormData]=useState({
-    name:"",
-    passWord:""
-  })          
-  function handleForm(e){
-    let {name,value}=e.target
-    SetFormData({
-      ...formData,[name]:value
-    })
-  }
-
-    async  function handleSubmit(e){
-    e.preventDefault()
-    // console.log(formData);
-     
-     let data=     await fetch("http://localhost:4000/create" ,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(formData)
-    })
-    // let res=    await data.json()
-    // console.log(res);
-  
-    // console.log("heheh");
-    
-
-
-    
-  }
-
-  // {
-  //   name:"rimi",
-  //   passWord:"123"    
-  // }
-  // {
-  //   "name":"123",
-  //   "dsifwi":2423
-  // }
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input  name='name' value={formData.name}  onChange={handleForm} type='text' placeholder='Name'/>
+   
 
-        <br></br>
-        <br></br>
-        <input   name='passWord' value={formData.passWord}  onChange={handleForm} type='password' placeholder='password'/>
-        <br></br>
-        <br></br>
-        <button type='submit'> AddData</button>
+      <Routes>
+      
+        <Route   path='/'   element={   <SignUp/>}/>
+        <Route   path='/home'      element={<Home/>} />
+        <Route   path='/login'   element={   <Login/>}/>
 
-      </form>
+      </Routes>
     </div>
   )
 }
