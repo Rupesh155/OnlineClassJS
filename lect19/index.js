@@ -37,14 +37,14 @@
 
 
 
- async  function  call(){
-  let data=   await   step1()
-  console.log(data);
+//  async  function  call(){
+//   let data=   await   step1()
+//   console.log(data);
 
-    let data1=   await  step2()
-    console.log(data1);   
-}
-call()
+//     let data1=   await  step2()
+//     console.log(data1);   
+// }
+// call()
 
 
 

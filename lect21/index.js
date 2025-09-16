@@ -40,7 +40,5 @@
          body.style.backgroundColor="green"
 
     }
-    isboll=!isboll
-    
-    
+    isboll=!isboll  
  })
