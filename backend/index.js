@@ -412,7 +412,14 @@ let express= require("express")
      console.log(req.body);
     
   // fs.writeFileSyn =c("index.html",data.msg)
-  res.send("data aa gya hai paresshan na ho aap log")
+  res.send(req.body)
+
+ })
+ app.post("/login",(req,res)=>{
+
+    let loginInfo=   req.body
+  res.send(loginInfo)
+
 
  })
 
