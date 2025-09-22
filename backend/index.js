@@ -466,7 +466,7 @@ app.get('/', (req, res) => {
 })
 
 app.post("/signUp",  async(req,res)=>{
-    
+       
        let {name,email,passWord}=      req.body
              
            const existingUser=      await  User.findOne({email})
@@ -484,11 +484,36 @@ app.post("/signUp",  async(req,res)=>{
                   await   newUser.save()
                   res.send({msg:"user registered"} )
                   
-
-
            }
 
 })
+
+app.post("/login", async(req,res)=>{
+  let {email,passWord}=req.body
+        // rbac
+           let user=    await User.findOne({email})
+           if(!user){
+            return res.send({msg:"User not found"})
+           }else{
+               
+               let isMatch=   await   bcrypt.compare(passWord,user.passWord)
+               if(!isMatch){
+                return res.send("Invalid credentials")
+               }
+                   
+               return res.send("Login successfulyyyyy")
+
+           }
+
+
+
+})
+
+
+// app.get("/imp",()=>{
+
+      
+// })
 
 
 // 123 => a@123
