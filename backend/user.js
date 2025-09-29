@@ -2,7 +2,12 @@ let mongoose=  require("mongoose")
 let userSchema=  new mongoose.Schema({
     name:String,
     email:String,
-    passWord:String
+    passWord:String,
+    role:{
+        type:String,
+        enum:["user","admin"],
+        default:"user"
+    }
 })
 
  let User=      mongoose.model("User",userSchema)

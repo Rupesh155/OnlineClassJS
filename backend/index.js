@@ -450,6 +450,7 @@
 
 let express = require("express")
  let bcrypt=  require("bcrypt")
+ let jwt=    require('jsonwebtoken')
 let app = express()
 
 app.use(express.json())
@@ -467,7 +468,7 @@ app.get('/', (req, res) => {
 
 app.post("/signUp",  async(req,res)=>{
        
-       let {name,email,passWord}=      req.body
+       let {name,email,passWord,role}=      req.body
              
            const existingUser=      await  User.findOne({email})
            if(existingUser){
@@ -479,7 +480,8 @@ app.post("/signUp",  async(req,res)=>{
                  let newUser=     new User({
                     name:name,
                     email:email,
-                    passWord:hashedP
+                    passWord:hashedP,
+                    role:role || 'user'
                   })
                   await   newUser.save()
                   res.send({msg:"user registered"} )
@@ -487,8 +489,10 @@ app.post("/signUp",  async(req,res)=>{
            }
 
 })
+// rbac
 
 app.post("/login", async(req,res)=>{
+  let secreateKey="JDNFNHIUWHFIWWIU"
   let {email,passWord}=req.body
         // rbac
            let user=    await User.findOne({email})
@@ -500,12 +504,54 @@ app.post("/login", async(req,res)=>{
                if(!isMatch){
                 return res.send("Invalid credentials")
                }
+                  
+              let token=   jwt.sign({email:user.email,role:user.role},secreateKey)
+              console.log(token,"toeknnn");
+              
                    
-               return res.send("Login successfulyyyyy")
+               return res.send(token)
 
            }
+})
 
 
+function authorizeRole(requireRole){
+
+  return (req,res,next)=>{
+     
+     const Token=     req.headers.authorization
+     console.log(Token,"heheh");
+     
+     if(!Token){
+      return res.send({msg:"Access denied"})
+     }
+     else{
+        
+      let decode=     jwt.verify(Token,"JDNFNHIUWHFIWWIU")
+      console.log(decode,"code");
+      
+      if(decode.role!==requireRole){
+        return res.send("Insufficient permission")
+
+      }else{
+        next()
+      }
+
+
+     }
+
+
+  }
+
+}
+
+
+
+
+
+// rbac
+app.get("/home", authorizeRole("admin"),   (req,res)=>{
+  res.send("homeee")
 
 })
 
