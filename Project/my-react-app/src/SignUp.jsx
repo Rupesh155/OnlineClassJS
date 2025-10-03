@@ -5,7 +5,9 @@ const SignUp = () => {
   let [formData,SetFormData]=useState({
     name:"",
     email:"",
-    passWord:""
+    passWord:"",
+    role:""
+
   })          
   function handleForm(e){
     let {name,value}=e.target
@@ -17,7 +19,7 @@ const SignUp = () => {
     async  function handleSubmit(e){
     e.preventDefault()
 
-        let res=   await axios.post("http://localhost:4000/create",formData)
+        let res=   await axios.post("http://localhost:4000/signUp",formData)
         console.log(res.data);
         localStorage.setItem("user",JSON.stringify(res.data))
         
@@ -59,6 +61,9 @@ const SignUp = () => {
         <br></br>
         <br></br>
         <input  name='email' value={formData.email}  onChange={handleForm} type='email' placeholder='Name'/>
+        <br></br>
+        <br></br>
+        <input  name='role' value={formData.role}  onChange={handleForm} type='text' placeholder='role'/>
         <br></br>
         <br></br>
         <input   name='passWord' value={formData.passWord}  onChange={handleForm} type='password' placeholder='password'/>

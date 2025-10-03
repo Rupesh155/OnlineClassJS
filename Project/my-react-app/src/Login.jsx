@@ -17,22 +17,23 @@ const Login = () => {
   }
 
     async  function handleSubmit(e){
-        
+
     e.preventDefault()
 
         let res=   await axios.post("http://localhost:4000/login",formData)
-        // console.log(res.data);
-        let loginData=res.data
-        let SingUpData=   localStorage.getItem("user")
-           let realData=    JSON.parse(SingUpData)
-        console.log(realData);
+        console.log(res.data);
+        localStorage.setItem('token',JSON.stringify(res.data))
+        // let loginData=res.data
+        // let SingUpData=   localStorage.getItem("user")
+        //    let realData=    JSON.parse(SingUpData)
+        // console.log(realData);
 
-        if(loginData.email==realData.email  && loginData.passWord==realData.passWord){
-            navigate('/home')
+        // if(loginData.email==realData.email  && loginData.passWord==realData.passWord){
+        //     navigate('/home')
 
-        }else{
-            navigate("/")
-        }
+        // }else{
+        //     navigate("/")
+        // }
         
        
   
@@ -83,3 +84,34 @@ const Login = () => {
 }
 
 export default Login
+
+
+
+
+
+// let arr=[1,2,-3,4,-5,-3,5]
+// let max=arr[0]
+// function max(){
+//     for(let i =1;i<arr.length;i++){
+//         if(arr[i]>max){
+//             max=arr[i]
+
+//         }
+//     }
+//     console.log(max);
+    
+// }
+// sum()
+
+
+
+
+
+
+
+
+
+
+
+
+

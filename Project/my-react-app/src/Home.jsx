@@ -33,8 +33,21 @@
 
 
 import React from 'react'
-
+import axios from 'axios'
 const Home = () => {
+  async  function HomeCall(){
+  let Token=  localStorage.getItem("token")
+
+  let data=JSON.parse(Token)
+  console.log(data, 'toekn');
+  
+    let res=   await axios.get("http://localhost:4000/home")
+    console.log(res,"heheheh");
+    
+
+  }
+  HomeCall()
+
   return (
     <div>Home   fileeeeeee</div>
   )
