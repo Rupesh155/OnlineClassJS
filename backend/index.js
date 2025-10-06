@@ -445,7 +445,7 @@
 //   console.log(i++);
 
 // } 
-
+   
 
 
 let express = require("express")
@@ -453,6 +453,7 @@ let express = require("express")
  let jwt=    require('jsonwebtoken')
  let cors= require('cors')
 let app = express()
+let signUp= require('./Routes/signUp')
 
 app.use(express.json())
 app.use(cors())
@@ -468,31 +469,9 @@ app.get('/', (req, res) => {
   res.send("hello")
 })
 
-app.post("/signUp",  async(req,res)=>{
-       
-       let {name,email,passWord,role}=      req.body
-             
-           const existingUser=      await  User.findOne({email})
-           if(existingUser){
-            return res.send({msg:"User already exists"})
-           }
-           else{
-                  let hashedP=     await bcrypt.hash(passWord,10)
-                  console.log(hashedP);
-                 let newUser=     new User({
-                    name:name,
-                    email:email,
-                    passWord:hashedP,
-                    role:role || 'user'
-                  })
-                  await   newUser.save()
-                  res.send({msg:"user registered"} )
-                  
-           }
 
-})
 // rbac
-
+app.use(   "/api",signUp)
 app.post("/login", async(req,res)=>{
   let secreateKey="JDNFNHIUWHFIWWIU"
   let {email,passWord}=req.body
@@ -517,6 +496,7 @@ app.post("/login", async(req,res)=>{
 })
 
 
+
 function authorizeRole(requireRole){
 
   return (req,res,next)=>{
@@ -533,7 +513,7 @@ function authorizeRole(requireRole){
       console.log(decode,"code");
       
       if(decode.role!==requireRole){
-        return res.send("Insufficient permission")
+        return res.send({msg:"Insufficient permission"})
 
       }else{
         next()
@@ -550,7 +530,7 @@ function authorizeRole(requireRole){
 
 // rbac
 app.get("/home", authorizeRole("admin"),   (req,res)=>{
-  res.send("homeee")
+  res.send({msg:"home filee"})
 
 })
 
