@@ -60,7 +60,7 @@ const SignUp = () => {
         <input  name='name' value={formData.name}  onChange={handleForm} type='text' placeholder='Name'/>
         <br></br>
         <br></br>
-        <input  name='email' value={formData.email}  onChange={handleForm} type='email' placeholder='Name'/>
+        <input  name='email' value={formData.email}  onChange={handleForm} type='email' placeholder='email'/>
         <br></br>
         <br></br>
         <input  name='role' value={formData.role}  onChange={handleForm} type='text' placeholder='role'/>

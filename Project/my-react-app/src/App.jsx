@@ -339,6 +339,7 @@ import Login from './Login'
 import Home from './Home'
 
 const App = () => {
+  let token=true
   return (
     <div>
    
@@ -346,7 +347,7 @@ const App = () => {
       <Routes>
       
         <Route   path='/'   element={   <SignUp/>}/>
-        <Route   path='/home'      element={<Home/>} />
+        <Route   path='/home'      element={ token?<Home/>:<SignUp/>} />
         <Route   path='/login'   element={   <Login/>}/>
 
       </Routes>

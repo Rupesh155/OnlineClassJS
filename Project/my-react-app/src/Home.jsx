@@ -32,24 +32,51 @@
 
 
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 const Home = () => {
-  async  function HomeCall(){
-  let Token=  localStorage.getItem("token")
 
-  let data=JSON.parse(Token)
-  console.log(data, 'toekn');
-  
-    let res=   await axios.get("http://localhost:4000/home")
-    console.log(res,"heheheh");
+  let [showData,SetShowData]=   useState("")
+
+
+
+  useEffect(()=>{
+    async  function HomeCall(){
+
+      let Token=  localStorage.getItem("token")
     
+      let dataToken=JSON.parse(Token)
+    
+      
+        // let res=   await axios.get("http://localhost:4000/home")
+        // console.log(res,"heheheh");
+           
+        fetch("http://localhost:4000/home"    ,{
+          method:'GET',
+          headers:{
+            "Content-Type":"application/json",
+            "Authorization":dataToken
+          }
+    
+        }).then((res)=>{
+          return res.json()
+    
+        }).then((data)=>{
+          console.log(data);
+          SetShowData(data.msg)
+          
+    
+        })
+        
+    
+      }
+      HomeCall()
 
-  }
-  HomeCall()
+  },[])
+
 
   return (
-    <div>Home   fileeeeeee</div>
+    <div>{showData}</div>
   )
 }
 
