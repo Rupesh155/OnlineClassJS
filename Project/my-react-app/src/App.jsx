@@ -332,25 +332,39 @@
 // export default App
 
 
-import React from 'react'
-import SignUp from './SignUp'
-import { Route, Routes } from 'react-router-dom'
-import Login from './Login'
-import Home from './Home'
+// import React from 'react'
+// import SignUp from './SignUp'
+// import { Route, Routes } from 'react-router-dom'
+// import Login from './Login'
+// import Home from './Home'
 
-const App = () => {
-  let token=true
-  return (
-    <div>
+// const App = () => {
+//   let token=true
+//   return (
+//     <div>
    
 
-      <Routes>
+//       <Routes>
       
-        <Route   path='/'   element={   <SignUp/>}/>
-        <Route   path='/home'      element={ token?<Home/>:<SignUp/>} />
-        <Route   path='/login'   element={   <Login/>}/>
+//         <Route   path='/'   element={   <SignUp/>}/>
+//         <Route   path='/home'      element={ token?<Home/>:<SignUp/>} />
+//         <Route   path='/login'   element={   <Login/>}/>
 
-      </Routes>
+//       </Routes>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+import React from 'react'
+import UploadImage from './UploadImage'
+
+const App = () => {
+  return (
+    <div>
+      <UploadImage/>
     </div>
   )
 }
